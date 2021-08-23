@@ -1,14 +1,6 @@
 {% extends 'base.html' %}
 
-<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-<link href="https://cdn.rawgit.com/mdehoog/Semantic-UI/6e6d051d47b598ebab05857545f242caf2b4b48c/dist/semantic.min.css" rel="stylesheet" type="text/css" />
-<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
-<script src="https://cdn.rawgit.com/mdehoog/Semantic-UI/6e6d051d47b598ebab05857545f242caf2b4b48c/dist/semantic.min.js"></script>
-<script>
-    $('#example2').calendar({
-  type: 'date'
-});
-</script>
+
 
 {% block title %} 
 Add a Patient
@@ -56,16 +48,8 @@ Add a Patient
 
           <div class="form-group col-md-2">
             <label for="{{form.treatment_place.id_for_label}}}">Test Date </label>
-              <div class="form-group col-md-2">
-            <label for="id_treatment_place}">Test Date </label>
-              <input type="text" name="test_date" value="2021-08-23" class="form-control" required id="id_test_date"><input type="hidden" name="initial-test_date" value="2021-08-23 06:08:05+00:00" id="initial-id_test_date">
-          </div>
-              <div class="ui calendar" id="example2">
-    <div class="ui input left icon">
-      <i class="calendar icon"></i>
-      <input type="text" placeholder="Date">
-    </div>
-  </div>
+              
+        
               
               {{ form.test_date }}
           </div>
