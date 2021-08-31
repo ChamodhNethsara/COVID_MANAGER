@@ -20,6 +20,12 @@ class Add_Patient_form(ModelForm):
         super(Add_Patient_form, self).__init__(*args, **kwargs)
         for visible in self.visible_fields():
             visible.field.widget.attrs['class'] = 'form-control'
+            
+
+
+
+
+        
         
 
     

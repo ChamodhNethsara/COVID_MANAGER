@@ -1,8 +1,17 @@
 {% extends 'base.html' %}
+{%load static %}
+
+
+{%block css %}
+<link href="{% static 'stylesheets/index.css' %}" rel="stylesheet" type='text/css' >
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+{%endblock%}
 {% block title %} 
 WELCOME
 {% endblock %}
-
+ 
 {% block content %} 
 {% if messages %}
 <ul class="messages">
@@ -11,6 +20,29 @@ WELCOME
     {% endfor %}
 </ul>
 {% endif %}
+
+
+<div class="hero">
+    <div class='hero-text'>
+        <h1>welcome!!</h1>   
+
+        <span class='hero-text-p'>
+        
+            Welcome to the fully functional covid 19 patient management system designed 
+            with Python3 and django 3
+</span>
+            
+
+    
+
+    <div class="buttons">
+   
+    <button class="btn-sm btn btn-primary">View All Patients </button>
+
+</form>
+</div>
+    </div>
+</div>
 
 
 
