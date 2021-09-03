@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.contrib import messages 
 from .forms import Add_Patient_form
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect,QueryDict
 from django.urls import reverse
 # Create your views here.
 
@@ -15,7 +15,19 @@ def welcome(request):
 
 @login_required
 def all_patients(request):
+
+    query = request.GET
+    patients = Patient.objects.filter(**query.dict())
+    paginator = Paginator(patients,25)
+
+    page_number = query.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request,'manager/all_patients.html',{'patients': page_obj})
+
+
+    '''
     if request.GET.get('search'):
+    
         query = request.GET.get('search')
         patients = Patient.objects.filter(name__contains=query)
         paginator = Paginator(patients,25)
@@ -27,7 +39,7 @@ def all_patients(request):
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     return render(request,'manager/all_patients.html',{'patients': page_obj})
-
+    '''
 @login_required
 def add_patient_view(request):
     return render(request,'manager/add_patient.html',{'form':Add_Patient_form})

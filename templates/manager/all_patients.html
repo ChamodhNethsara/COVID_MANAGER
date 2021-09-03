@@ -1,22 +1,34 @@
 {% extends 'base.html' %}
+
 {% block css %} 
 {% load static %}
-<link rel="stylesheet" href="{% static 'base/patients.css' %}"  type="text/css">
+<link rel="stylesheet" href="{% static 'stylesheets/patients.css' %}"  type="text/css">
+<script src="{% static 'scripts/filters.js' %}" ></script>
+
+
 {% endblock %}
 
 {% block title %} 
 All Patients
 {% endblock %}
-
 {% block content %}
 
+<div class="body">
 
 
-<form  action="" style="margin-top: 20px;margin-left: 20px;box-sizing: content-box;">
-    <input type="search" name="search" style="width: 25%;border:none;border-bottom: 1px solid black;" placeholder="Search Patients">
-    <input type="submit" value="search" class="btn-sm btn btn-primary">
 
-</form>
+
+
+
+
+
+
+
+
+<div class="patient-body">
+
+
+
 
 
 {% if patients %}
@@ -89,4 +101,61 @@ All Patients
     </div>
   </div>
 {% endif %}
+
+</div>
+
+
+<div class='filter'>
+
+  <form  action="" >
+    <div class='form-row'>
+    <input type="search" name="name__icontains"  class='form-control form-group col-md-7' placeholder="Search Patients">
+    <input type="submit" value="search" class="btn-sm btn btn-primary form-group col-md-3">
+      </div>
+</form>
+
+<dl>
+  <dt>Filter by Status</li>
+    <dd><a onclick="filter_any_status()">Any status</a></dd>
+    <dd><a onclick='filter_positive()'>Tested Positive</a></dd>
+    <dd><a onclick='filter_dead()'>Dead</a></dd>
+    <dd><a onclick='filter_quarantined ()'>Quarantined</a></dd>
+
+    <dt>Filter By Age</dt>
+    <dd><a onclick="filter_age_any()">Under 18</a></dd>
+    <dd><a onclick="filter_age_1()">18 to 30</a></dd>
+    <dd><a onclick="filter_age_2()">30 to 60</a></dd>
+    <dd><a onclick="filter_age_3()">Above 60</a></dd>
+
+    <dt>Filter By Treatment type</dt>
+    <dd ><a onclick="filter_treatment_any()">Any Type</a></dd>
+
+    <dd ><a onclick="filter_treatment_1()">Home</a></dd>
+    <dd><a onclick="filter_treatment_2()">Workplace</a></dd>
+    <dd><a onclick="filter_treatment_3()">Hospital</a></dd>
+ 
+
+    <dt>Filter By Test type</dt>
+    <dd><a onclick="filter_test_any()">Any Test</a></dd>
+
+    <dd><a onclick="filter_test_1()">PCR</a></dd>
+    <dd><a onclick="filter_test_2()">RAT</a></dd>
+
+
+
+
+
+</dl>
+
+
+
+</div>
+
+
+
+
+
+
+
+</div>
 {% endblock %}
